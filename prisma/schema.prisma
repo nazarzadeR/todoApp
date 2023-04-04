@@ -1,0 +1,61 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id           String   @id @default(auto()) @map("_id") @db.ObjectId
+    username     String   @unique
+    password     String
+    refreshToken String?
+    todos        TodoList[]
+    role         Role     @default(USER)
+    created_at   DateTime @default(now())
+    updated_at   DateTime @updatedAt
+
+    @@map("users")
+}
+
+model TodoList {
+    id           String    @id @default(auto()) @map("_id") @db.ObjectId
+    userId       String    @db.ObjectId
+    title        String
+    description  String
+    color        String
+    tags         Tag[]
+    reminder     Reminder?
+    todo         Todo[]
+    endless      Boolean   @default(false)
+    endOfTheTime String?
+    user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+    created_at   DateTime  @default(now())
+    updated_at   DateTime  @updatedAt
+
+    @@map("todos")
+}
+
+type Tag {
+    id          String @default(uuid())
+    name        String
+    description String
+}
+
+type Reminder {
+    start String
+    end   String
+}
+
+type Todo {
+    id        String  @default(uuid())
+    title     String
+    completed Boolean @default(false)
+}
+
+enum Role {
+    USER
+    ADMIN
+}
