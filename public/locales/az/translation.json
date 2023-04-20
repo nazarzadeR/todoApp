@@ -1,0 +1,26 @@
+{
+    "sign": {
+        "greeting": "Xoş gəlmisiniz",
+        "signin": "Daxil ol",
+        "signup": "Qeydiyyatdan keç",
+        "username" : {
+            "input": {
+                "hint": "İstifadəçi adınızı daxil edin",
+                "error": {
+                    "hasUser": "İstifadəçi adı artıq götürülüb",
+                    "required": "istifadəçi adı doldurulmalıdır"
+                }
+            }
+        },
+
+        "password": {
+            "input": {
+                "hint": "Şifrənizi daxil edin",
+                "error": {
+                    "required": "parol sahəsi doldurulmalıdır",
+                    "require": "Şifrə ən azı 5 simvoldan ibaret olamlıdır. Ən az 1 rəqəm və baş hərif istifadə olunmalıdır"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "sign": {
+        "up": "Please wait a few moments for the backend to be activated.",
+        "register" : "Register",
+        "greeting": "Welcome",
+        "signin": "Signin",
+        "signup": "Signup",
+        "toSignup": "Don't have a account?",
+        "toSignin": "Already have a account?",
+        "event": {
+            "success": "welcome to todos app",
+            "taken": "username already taken",
+            "wrong": "username or password is wrong"
+        },
+        "username" : {
+            "input": {
+                "hint": "Enter your username",
+                "error": {
+                    "required": "username must be filled"
+                }
+            }
+        },
+        "password": {
+            "input": {
+                "hint": "Enter your password",
+                "error": {
+                    "required": "password field must be filled",
+                    "require": "The password field must be minimum 5 characters and least one capital and numeric character used"
+                }
+            },
+            "confirm": {
+                "hint": "Enter confirm password",
+                "error": {
+                    "same": "The password must be same",
+                    "required": "The confirm filed required"
+                }
+            }
+        }
+    },
+    "sidebar" : {
+        "search" : "search",
+        "signOut": "Sign out",
+        "tasks": "Tasks",
+        "upcoming": "upcoming",
+        "today": "today",
+        "sticky": "Sticky Wall",
+        "create": "Create",
+        "todos": "Todos",
+        "addTodo": {
+            "header": "Add todo list",
+            "created": "New todo list created",
+            "title": {
+                "input": "Add title your todo list",
+                "required": "Title field required"
+            },
+            "description": {
+                "input": "Add description for you todo",
+                "required": "Description filed required"
+            },
+            "color": "Pick color your todos",
+            "tags": "Add tags for your todos",
+            "endOfTime": {
+                "question": "Select your deadline"
+            }
+        },
+        "setting": {
+            "setting": "setting",
+            "name": "Change name",
+            "password": "Change password",
+            "reset": "Reset all",
+            "userPropertyModal": {
+                "change": "Change",
+                "nameHeader": "Change username",
+                "passwordHeader": "Change password"
+            },
+            "delete": {
+                "setting": "Delete user",
+                "modalHeader": "User Deletion",
+                "modalDesc": "Are you sure? You can't undo this action afterwards.",
+                "confirm": "Delete",
+                "cancel": "cancel"
+            }
+        }
+    },
+    "home": {
+        "todo": {
+            "add": "Add",
+            "input": "Add todo for your todo list"
+        }
+    },
+    "error": "Something happened, and that is bad"
+}
