@@ -9,19 +9,23 @@ import { ElementContextProvider } from "./elementContext";
 import { Next, Search, Sticky, List, AddTodo } from "components";
 import SearchBarModal from "layout/Sidebar/components/SearchBar/SearchBarModal";
 import CreateTodoModal from "layout/Sidebar/components/Create/CreateTodoModal";
+import { useLocation } from "react-router";
 
 const MobileNavigation = () => {
     const { t } = useTranslation();
     const { setFilter } = useFilter();
+    const { pathname } = useLocation();
     const { isOpen, onClose, onOpen } = useDisclosure();
+    const [isLessThenSm] = useMediaQuery("(max-width: 480px)");
+    const showAbleRoutes = ["/"];
     const {
         isOpen: isOpenTodo,
         onClose: onCLoseTodo,
         onOpen: onOpenTodo,
     } = useDisclosure();
-    const [isLessThenSm] = useMediaQuery("(max-width: 480px)");
 
-    if (!isLessThenSm) return null;
+    if (!isLessThenSm || !showAbleRoutes.some((val) => pathname === val))
+        return null;
 
     return (
         <Flex

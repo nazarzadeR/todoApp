@@ -3,6 +3,7 @@ import { HStack, Heading } from "@chakra-ui/react";
 
 import NavLink from "./NavLink";
 import ThemeToggle from "./ThemeToggle";
+import SettingToggle from "./SettingToggle";
 
 const Navigation = () => {
     return (
@@ -17,9 +18,13 @@ const Navigation = () => {
                 Todos
             </Heading>
 
-            <HStack>
+            <HStack gap="2">
                 <NavLink>
                     <ThemeToggle />
+                </NavLink>
+
+                <NavLink mobile hideRoutesPath={["/signin", "/signup"]}>
+                    <SettingToggle />
                 </NavLink>
             </HStack>
         </HStack>

@@ -12,7 +12,11 @@ type Props = { isName?: boolean; header: React.ReactNode } & Omit<
 const ChangeUserPropertyModal: React.FC<Props> = (props) => {
     const { isName = false, ...rest } = props;
 
-    return <Modal {...rest}>{isName ? <ChangeNameForm /> : null}</Modal>;
+    return (
+        <Modal size={["xs", "sm", "md"]} {...rest}>
+            {isName ? <ChangeNameForm /> : null}
+        </Modal>
+    );
 };
 
 export default ChangeUserPropertyModal;

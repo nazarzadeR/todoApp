@@ -24,7 +24,7 @@ const CreateTodoModal: React.FC<Props> = (props) => {
     };
 
     return (
-        <Modal {...props}>
+        <Modal size={["xs", "sm", "md"]} {...props}>
             <Formik initialValues={{ title: "" }} onSubmit={onSubmit}>
                 {(context) => (
                     <VStack as={Form} p="2">

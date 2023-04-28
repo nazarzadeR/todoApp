@@ -9,9 +9,15 @@ import {
 
 import DeleteUserAlert from "./modals/DeleteUser";
 import ChangeUserPropertyModal from "./modals/ChaneUserPropertyModal";
+import { useAuth } from "stores";
 
-const MenuItems = () => {
+type Props = {
+    hasLogout?: boolean;
+};
+
+const MenuItems: React.FC<Props> = ({ hasLogout = false }) => {
     const { t } = useTranslation();
+    const { signOut } = useAuth();
     const [isName, { on, off }] = useBoolean();
     const { isOpen, onClose, onOpen } = useDisclosure();
     const {
@@ -54,6 +60,12 @@ const MenuItems = () => {
                     isOpen={isDeleteOpen}
                     onClose={onDeleteClose}
                 />
+            )}
+
+            {hasLogout && (
+                <MenuItem onClick={signOut}>
+                    {t("sidebar.signOut")}
+                </MenuItem>
             )}
         </MenuList>
     );

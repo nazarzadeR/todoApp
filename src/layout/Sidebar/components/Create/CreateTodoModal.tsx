@@ -17,7 +17,7 @@ type Props = Omit<ModalProps, "children">;
 const CreateTodoModal: React.FC<Props> = (props) => {
     const { t } = useTranslation();
     return (
-        <Modal isCentered size={["sm", "md", "lg"]} {...props}>
+        <Modal isCentered size={["xs", "sm", "md"]} {...props}>
             <ModalOverlay />
             <ModalContent>
                 <ModalHeader>{t("sidebar.addTodo.header")}</ModalHeader>
