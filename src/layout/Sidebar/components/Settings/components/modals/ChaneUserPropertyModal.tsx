@@ -13,7 +13,7 @@ const ChangeUserPropertyModal: React.FC<Props> = (props) => {
     const { isName = false, ...rest } = props;
 
     return (
-        <Modal size={["xs", "sm", "md"]} {...rest}>
+        <Modal size={[ "sm", "md"]} {...rest}>
             {isName ? <ChangeNameForm /> : null}
         </Modal>
     );

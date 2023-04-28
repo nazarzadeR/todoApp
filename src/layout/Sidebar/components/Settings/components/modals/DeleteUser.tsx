@@ -35,7 +35,7 @@ const DeleteUser: React.FC<Props> = (props) => {
     return (
         <AlertDialog
             isOpen={isOpen}
-            size={["xs", "sm", "md"]}
+            size={["sm", "md"]}
             onClose={onClose}
             leastDestructiveRef={cancelRef}
         >

@@ -12,22 +12,35 @@ import {
 } from "@chakra-ui/react";
 
 import { Search } from "components";
+import { useFilters } from "stores";
 
 type Props = Omit<ModalProps, "children">;
 
 const SearchBarModal: React.FC<Props> = (props) => {
     const initialRef = React.useRef(null);
-    const onCloseWhenEnter = (e: any) => e.key === "Enter" && props.onClose();
+    const { setFilter, filter } = useFilters();
+
     const formik = useFormik({
-        initialValues: { search: "" },
+        initialValues: { search: filter },
         onSubmit(values, formikHelpers) {
-            console.log(values);
+            setFilter(values.search);
         },
     });
 
+    const onCloseWhenEnter = (e: any) => {
+        if (e.key === "Enter") onCloseSearchBar();
+
+        formik.submitForm();
+    };
+
+    function onCloseSearchBar() {
+        formik.submitForm();
+        props.onClose();
+    }
+
     return (
         <Modal
-            size={["xs", "sm"]}
+            size={["xs", "sm", "md"]}
             motionPreset="scale"
             initialFocusRef={initialRef}
             {...props}
@@ -44,8 +57,9 @@ const SearchBarModal: React.FC<Props> = (props) => {
                         <Input
                             name="search"
                             onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
                             onKeyDown={onCloseWhenEnter}
+                            onChange={formik.handleChange}
+                            value={formik.values.search}
                         />
                     </InputGroup>
                 </ModalBody>
